@@ -19,7 +19,7 @@
   							<tr>
   								<td colspan="2">
   								&nbsp;&nbsp;&nbsp;
-  								<input type="submit" class="uButton" value="登录"/>
+  								<input type="button" id="testing" class="uButton" value="登录"/>
   								&nbsp;&nbsp;&nbsp;
   								<input type="reset"  class="uButton" value="重置"/>
   								

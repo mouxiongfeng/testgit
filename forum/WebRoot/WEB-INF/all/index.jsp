@@ -17,6 +17,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" type="text/css" href="css/head.css">
 	<link rel="stylesheet" type="text/css" href="css/middle.css">
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#testing").click(function(){
+				alert("进入jquery");
+			
+				$.post("user/login.do",{
+				userName:$("input[name='userName']").val(),
+				userPassword:$("input[name='userPassword']").val()},
+				function(data){
+					alert(data);
+				});
+			});
+		});
+	</script>
 	<style type="text/css">
 
 	</style>
@@ -28,6 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<div id="middle">
   		<div id="left">
   			${user.userName }
+  			<p>你好</p>
   		</div>
   		<%@include file="../../../common/right.jsp"%>
   	</div>

@@ -28,14 +28,18 @@ public class UserController {
 		ModelAndView mav=new ModelAndView();
 		user=userService.login(user);
 		System.out.println(user);
+		String result="";
 		if(user!=null){
 			session.setAttribute("user", user);
-			return "user/index";
+			result="成功";
+			
 		}else{
 			mav.addObject("error", "登陆账号或密码错误");
-			return "all/error";
+			result="失败";
 		}
+		return result;
 	}
+	
 	@RequestMapping("/goToRegister")
 	public String goToRegister(){
 		return "user/register";
@@ -43,9 +47,7 @@ public class UserController {
 	
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public String register(User user){
-		System.out.println(user.getUserName()+user.getUserPassword());
 		int conn=userService.register(user);
-		System.out.println(conn);
 		if(conn==0){
 			return "all/error";
 		}else{

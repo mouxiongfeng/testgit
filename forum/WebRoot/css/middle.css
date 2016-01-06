@@ -16,6 +16,7 @@
 			position: fixed;
 			left:884px;
 			background-color: #D1E2E5;
+			border-radius:5px;
 		}
 		#right_top{
 			height:181px;

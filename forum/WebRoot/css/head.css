@@ -12,6 +12,7 @@
 			height:35px;
 			background:#7AE6F4;
 			position: fixed;
+			border-radius:7px;
 		}
 		#head_a{
 			margin:0 auto;
