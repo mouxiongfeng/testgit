@@ -2,7 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mouxf.forum.user.repository.UserRepository">
+	<resultMap type="User" id="userList">
+		<id property="userId" column="user_id"/>
+		<result property="userName" column="user_name"/>
+		<result property="userPassword" column="user_pasword"/>
+		<result property="userEmail" column="user_email"/>
+		<result property="userPicture" column="user_picture"/>
+	</resultMap>
 	<select id="login" parameterType="User" resultType="User">
-		select * from user where user_name=#{userName} and user_password=#{userPassword}
+		select user_id userId,user_name userName,user_password userPassword,user_email userEmail,user_picture userPicture
+			from user where user_name=#{userName} and user_password=#{userPassword}
+	</select>
+	<insert id="register" parameterType="User" useGeneratedKeys="true" keyProperty="userId">
+		insert into user (user_name,user_password,user_email,user_picture)
+			values (#{userName},#{userPassword},#{userEmail},#{userPicture})
+	</insert>
+	<select id="userList" resultMap="userList">
+		select * from user
 	</select>
 </mapper>

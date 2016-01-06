@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+		body{
+			font-family: "微软雅黑";
+			background:#E3F6F7;
+		}
+		#center{
+			width:921px;
+			margin:0 auto;
+		}
+		#head{
+			width:921px;
+			height:35px;
+			background:#7AE6F4;
+			position: fixed;
+		}
+		#head_a{
+			margin:0 auto;
+			width:840px;
+		}
+		#head_a a{
+			display: block;
+			margin-left:30px;
+			height:100%;
+			width:110px;
+			color:#fff;
+			font-weight:bold;
+			font-size:22px;
+			float: left;
+			text-decoration: none;
+		}
+		#head_a a:hover{
+			background:#C9F9F3;
+		}

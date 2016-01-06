@@ -23,7 +23,7 @@
 		destroy-method="close"
 		p:driverClassName="com.mysql.jdbc.Driver"
 		p:url="jdbc:mysql://localhost:3306/forum?characterEncoding=utf8"
-		p:username="root"
+		p:username="mxf"
 		p:password="123456"
 		p:maxActive="10"
 		p:maxIdle="10"
