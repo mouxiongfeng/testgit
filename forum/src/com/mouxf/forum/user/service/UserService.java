@@ -16,8 +16,8 @@ public class UserService {
 	public User login(User user){
 		return userMapper.login(user);
 	}
-	public void register(User user){
-		userMapper.register(user);
+	public int register(User user){
+		return userMapper.register(user);
 	}
 	public List<User> userList(){
 		return userMapper.userList();

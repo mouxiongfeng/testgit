@@ -31,10 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		</div>
   		<%@include file="../../../common/right.jsp"%>
   	</div>
-  	<div id="foot">
-  		<hr size="4px" color="#2DBFFF"/>
-  		<p>网页制作</p>
-  	</div>
+	<%@include file="../../../common/foot.jsp"%>
   </div>
   </body>
 </html>

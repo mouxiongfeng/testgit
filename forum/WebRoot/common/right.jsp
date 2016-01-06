@@ -3,7 +3,7 @@
   			<div id="right_top"></div>
   			<div id="right_middle">
   				<hr color="#fff" size="5px"/>
-  					<form action="user/login.html" method="post">
+  					<form action="user/login.do" method="post">
   						<table>
   							<tr>
   								<td>用户名：</td>
@@ -27,7 +27,7 @@
   							</tr>
   						</table>
   					</form>
-  					<span class="msg">还没有用户名？点击<a href="">这里</a>注册</span>
+  					<span class="msg">还没有用户名？点击<a href="user/goToRegister.do">这里</a>注册</span>
   			</div>
   			<div id="right_bottom">
   				<hr color="#fff" size="5px"/>

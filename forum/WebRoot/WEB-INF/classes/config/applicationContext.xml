@@ -42,6 +42,4 @@
 		<property name="basePackage" value="com.mouxf.forum.user.repository"/>
 	</bean>
 	
-	
-
 </beans>

@@ -6,7 +6,7 @@ import com.mouxf.entity.User;
 
 public interface UserRepository{
 	public User login(User user);
-	public void register(User user);
+	public int register(User user);
 	public List<User> userList();
 }
 

@@ -19,9 +19,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("/test")
+	@RequestMapping("/index")
 	public String test(){
-		return "user/index";
+		return "all/index";
 	}
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String login(User user,HttpSession session){
@@ -33,14 +33,24 @@ public class UserController {
 			return "user/index";
 		}else{
 			mav.addObject("error", "登陆账号或密码错误");
-			return "error";
+			return "all/error";
 		}
 	}
+	@RequestMapping("/goToRegister")
+	public String goToRegister(){
+		return "user/register";
+	}
+	
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public String register(User user){
 		System.out.println(user.getUserName()+user.getUserPassword());
-		userService.register(user);
-		return "user/index";
+		int conn=userService.register(user);
+		System.out.println(conn);
+		if(conn==0){
+			return "all/error";
+		}else{
+			return "all/index";
+		}
 	}
 	@RequestMapping("/userList")
 	public String userList(HttpServletRequest request){
