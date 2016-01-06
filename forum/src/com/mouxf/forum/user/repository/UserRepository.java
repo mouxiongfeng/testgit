@@ -1,14 +1,8 @@
 package com.mouxf.forum.user.repository;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.mouxf.entity.User;
 
-@Controller
-@RequestMapping("/user")
-public class UserRepository {
-
-	@RequestMapping("/test")
-	public String test(){
-		return "index";
-	}
+public interface UserRepository{
+	public User login(User user);
 }
+

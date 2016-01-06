@@ -9,7 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>BBS论坛</title>
+    <title>错误</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,13 +19,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
   
   <body>
-    <form action="user/login.html" method="post">
-    	用户名：<input type="text" name="userName"/><br>
-    	密码：<input type="password" name="userPassword"/><br>
-    	<input type="submit" value="登录"/>
-    </form>
+  登录失败
   </body>
 </html>

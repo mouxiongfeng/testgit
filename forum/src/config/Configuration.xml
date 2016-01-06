@@ -3,6 +3,6 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="User" type="com.mouxf.entity.User"/>
+		<typeAlias type="com.mouxf.entity.User" alias="User"/>
 	</typeAliases>
 </configuration>
