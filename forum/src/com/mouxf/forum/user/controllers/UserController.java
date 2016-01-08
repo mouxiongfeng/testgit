@@ -1,8 +1,10 @@
 package com.mouxf.forum.user.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,25 +21,19 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("/index")
-	public String test(){
-		return "all/index";
-	}
 	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public String login(User user,HttpSession session){
+	public void login(User user,HttpSession session,HttpServletResponse response) throws IOException{
 		ModelAndView mav=new ModelAndView();
 		user=userService.login(user);
-		System.out.println(user);
 		String result="";
 		if(user!=null){
 			session.setAttribute("user", user);
-			result="成功";
-			
+			result="success";
 		}else{
 			mav.addObject("error", "登陆账号或密码错误");
-			result="失败";
+			result="false";
 		}
-		return result;
+		response.getWriter().write(result);
 	}
 	
 	@RequestMapping("/goToRegister")

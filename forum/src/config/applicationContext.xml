@@ -39,7 +39,7 @@
 	</bean>
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.mouxf.forum.user.repository"/>
+		<property name="basePackage" value="com.mouxf.forum"/>
 	</bean>
 	
 </beans>

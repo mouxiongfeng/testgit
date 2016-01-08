@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="right">
   			<div id="right_top"></div>
   			<div id="right_middle">
@@ -10,7 +11,7 @@
   								<td><input type="text" name="userName" class="uInput"/></td>
   							</tr>
   							<tr>
-  								<td colspan="2">&nbsp;<span class="msg"></span></td>
+  								<td colspan="2">&nbsp;<span id="msg" class="msg"></span></td>
   							</tr>
   							<tr>
   								<td>&nbsp;&nbsp;&nbsp;密码：</td>
@@ -31,5 +32,9 @@
   			</div>
   			<div id="right_bottom">
   				<hr color="#fff" size="5px"/>
+  				<p><span class="type">分类</span></p>
+  				<c:forEach items="${typeList}" var="type">
+  					<a href="#"><span class="type">${type.typeName }</span></a><br>
+  				</c:forEach>
   			</div>
   		</div>

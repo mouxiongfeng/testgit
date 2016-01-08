@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -21,19 +22,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#testing").click(function(){
-				alert("进入jquery");
-			
 				$.post("user/login.do",{
 				userName:$("input[name='userName']").val(),
 				userPassword:$("input[name='userPassword']").val()},
 				function(data){
-					alert(data);
+					$("#msg").html(data);
 				});
 			});
 		});
 	</script>
 	<style type="text/css">
-
+	#post{
+		border:1px solid #7AE6F4;
+		margin:0 auto;
+		margin-top:10px;
+		width:570px;
+		border-radius:5px;
+		border-bottom-width: 5px
+	}
+	#post table{
+		width:570px;
+	}
+	#see{
+		width:15px;
+		height:15px;
+		background:#F9C5B2;
+		border-radius:5px;
+		color:#fff;
+		text-align: center;
+	}
 	</style>
   </head>
   
@@ -42,8 +59,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<%@include file="../../../common/head.jsp"%>
   	<div id="middle">
   		<div id="left">
-  			${user.userName }
-  			<p>你好</p>
+  			<c:forEach items="${postList}" var="post" begin="1" end="8">
+  				<div id="post">
+  					<table>
+  						<tr>
+  							<td width="73px;" rowspan="3"><img src="images/touxiang1.jpg" width="70px" height="70px"/></td>
+  							<td width="150px">${post.postTitle}</td>
+							<td></td>
+  							<td width="50px"><div title="访问量" id="see">4</div></td>
+  						</tr>
+  						<tr>
+  							<td>${post.user.userName}</td>
+  							<td colspan="2">${post.postDate} </td>
+  						</tr>
+  					</table>
+  				</div>
+  			</c:forEach>
+  			<p>${sessionScope.user.userName}</p>
   		</div>
   		<%@include file="../../../common/right.jsp"%>
   	</div>
