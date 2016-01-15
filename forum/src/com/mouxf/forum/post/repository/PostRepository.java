@@ -7,4 +7,5 @@ import com.mouxf.entity.Post;
 public interface PostRepository {
 
 	public List<Post> getPostList();
+	public List<Post> getPostByTypeId(int typeId);
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@	taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -26,9 +27,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				userName:$("input[name='userName']").val(),
 				userPassword:$("input[name='userPassword']").val()},
 				function(data){
-					$("#msg").html(data);
+					if("success"==data){
+					}else{
+						$("#msg").html("用户名或密码错误");
+					}
 				});
 			});
+			
 		});
 	</script>
 	<style type="text/css">
@@ -54,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</style>
   </head>
   
-  <body>
+  <body onload="">
   <div id="center">
 	<%@include file="../../../common/head.jsp"%>
   	<div id="middle">
@@ -70,12 +75,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   						</tr>
   						<tr>
   							<td>${post.user.userName}</td>
-  							<td colspan="2">${post.postDate} </td>
+  							<td colspan="2">
+  								<fmt:formatDate value="${post.postDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+  							</td>
   						</tr>
   					</table>
   				</div>
+  				
   			</c:forEach>
-  			<p>${sessionScope.user.userName}</p>
   		</div>
   		<%@include file="../../../common/right.jsp"%>
   	</div>

@@ -13,9 +13,17 @@
 		</association>
 	</resultMap>
 	
-	<select id="getPostList" resultMap="postList">
+	<select id="getPostList" resultMap="postList" parameterType="Integer">
 		select p.post_id,p.post_title,p.post_content,p.post_date,u.user_id,u.user_name
-			from post p,user u
-			where p.user_id=u.user_id
+			from post p
+			inner join user u
+			on p.user_id=u.user_id
+	</select>
+	<select id="getPostByTypeId" resultMap="postList" parameterType="Integer">
+		select p.post_id,p.post_title,p.post_content,p.post_date,u.user_id,u.user_name from post p
+			inner join user u
+			on p.user_id=u.user_id
+			inner join (select * from type_post where type_id=#{typeId}) t
+			on p.post_id=t.post_id
 	</select>
 </mapper>

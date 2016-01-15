@@ -73,4 +73,8 @@
 	#right_bottom a:hover{
 		background:#C9F9F3;
 	}
-	
+	#right_middle_middle{
+		height:95%;
+		width:100%;
+		border:1px solid black;
+	}

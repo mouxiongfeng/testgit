@@ -21,6 +21,13 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	/**
+	 * 登录
+	 * @param user
+	 * @param session
+	 * @param response
+	 * @throws IOException
+	 */
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public void login(User user,HttpSession session,HttpServletResponse response) throws IOException{
 		ModelAndView mav=new ModelAndView();
@@ -29,18 +36,19 @@ public class UserController {
 		if(user!=null){
 			session.setAttribute("user", user);
 			result="success";
+			System.out.println(result);
 		}else{
 			mav.addObject("error", "登陆账号或密码错误");
 			result="false";
 		}
 		response.getWriter().write(result);
 	}
-	
+	/* 跳转到注册页面 */
 	@RequestMapping("/goToRegister")
 	public String goToRegister(){
 		return "user/register";
 	}
-	
+	/* 注册 */
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public String register(User user){
 		int conn=userService.register(user);
@@ -50,6 +58,13 @@ public class UserController {
 			return "all/index";
 		}
 	}
+	
+	@RequestMapping(value="/logOut")
+	public String logOut(HttpSession session){
+		session.removeAttribute("user");
+		return "redirect:/index.do";
+	}
+	
 	@RequestMapping("/userList")
 	public String userList(HttpServletRequest request){
 		List<User> users=userService.userList();
