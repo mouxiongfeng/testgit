@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mouxf.common.PageInfo;
 import com.mouxf.entity.Post;
 import com.mouxf.entity.Type;
 import com.mouxf.forum.index.service.IndexService;
@@ -20,11 +21,13 @@ public class IndexController {
 	
 	@RequestMapping("/index")
 	public ModelAndView index(ModelAndView mav,HttpServletRequest request){
-		List<Post> postList=indexService.getPostList(0);
-		mav.addObject("postList", postList);
+		if(request.getAttribute("typeId")==null){
+			List<Post> postList=indexService.getPostList();
+			mav.addObject("postList", postList);
+		}
 		List<Type> typeList=indexService.getTypeList();
 		mav.addObject("typeList", typeList);
-		mav.setViewName("all/index");
+		mav.setViewName(PageInfo.ALL_INDEX);
 		return mav;
 	}
 }

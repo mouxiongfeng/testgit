@@ -38,17 +38,7 @@
 		table .uInput{
 			border-radius:5px;
 		}
-		.uButton{
-			height:23px;
-			width:35px;
-			border: none;
-			background:#2DBFFF;
-			color:#fff;
-			align:center;
-			font-size: 10px;
-			border-radius:5px;
-			font-weight: bold;
-		}
+		
 	#right_bottom p{
 		width:39px;
 		margin:0 auto;

@@ -1,13 +1,12 @@
 package com.mouxf.forum.post.service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mouxf.common.ConversionDateFormat;
 import com.mouxf.entity.Post;
+import com.mouxf.entity.User;
 import com.mouxf.forum.post.repository.PostRepository;
 
 @Service
@@ -22,5 +21,8 @@ public class PostService {
 		
 		return postMapper.getPostByTypeId(typeId);
 	}
-	
+	public int addPost(User user,Post post){
+		post.setUser(user);
+		return postMapper.addPost(post);
+	}
 }

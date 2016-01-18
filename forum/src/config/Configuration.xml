@@ -5,6 +5,7 @@
 	<typeAliases>
 		<typeAlias type="com.mouxf.entity.User" alias="User"/>
 		<typeAlias type="com.mouxf.entity.Type" alias="Type"/>
-		<typeAlias type="com.mouxf.entity.Post" alias="post"/>
+		<typeAlias type="com.mouxf.entity.Post" alias="Post"/>
+		<typeAlias type="com.mouxf.entity.pojo.TypePost" alias="TypePost"/>
 	</typeAliases>
 </configuration>

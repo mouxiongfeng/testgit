@@ -45,3 +45,14 @@
 			font-size: 12px;
 			color:#737474;
 		}
+		.uButton{
+			height:23px;
+			width:35px;
+			border: none;
+			background:#2DBFFF;
+			color:#fff;
+			align:center;
+			font-size: 10px;
+			border-radius:5px;
+			font-weight: bold;
+		}

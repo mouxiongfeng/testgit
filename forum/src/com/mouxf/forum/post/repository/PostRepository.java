@@ -8,4 +8,5 @@ public interface PostRepository {
 
 	public List<Post> getPostList();
 	public List<Post> getPostByTypeId(int typeId);
+	public int addPost(Post post);
 }

@@ -71,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   							<td width="73px;" rowspan="3"><img src="images/touxiang1.jpg" width="70px" height="70px"/></td>
   							<td width="150px">${post.postTitle}</td>
 							<td></td>
-  							<td width="50px"><div title="访问量" id="see">4</div></td>
+  							<td width="50px"><div title="访问量" id="see">${post.postNum}</div></td>
   						</tr>
   						<tr>
   							<td>${post.user.userName}</td>

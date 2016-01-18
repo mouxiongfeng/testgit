@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mouxf.common.PageInfo;
 import com.mouxf.entity.User;
 import com.mouxf.forum.user.service.UserService;
 @Controller
@@ -36,7 +37,6 @@ public class UserController {
 		if(user!=null){
 			session.setAttribute("user", user);
 			result="success";
-			System.out.println(result);
 		}else{
 			mav.addObject("error", "登陆账号或密码错误");
 			result="false";
@@ -46,7 +46,7 @@ public class UserController {
 	/* 跳转到注册页面 */
 	@RequestMapping("/goToRegister")
 	public String goToRegister(){
-		return "user/register";
+		return PageInfo.USER_REGISTER;
 	}
 	/* 注册 */
 	@RequestMapping(value="/register",method=RequestMethod.POST)
@@ -55,14 +55,14 @@ public class UserController {
 		if(conn==0){
 			return "all/error";
 		}else{
-			return "all/index";
+			return PageInfo.ALL_INDEX;
 		}
 	}
 	
 	@RequestMapping(value="/logOut")
 	public String logOut(HttpSession session){
 		session.removeAttribute("user");
-		return "redirect:/index.do";
+		return PageInfo.REDIRECT_INDEX;
 	}
 	
 	@RequestMapping("/userList")

@@ -8,10 +8,17 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.0.xsd
         http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 	<context:component-scan base-package="com.mouxf.forum"/>
 	<mvc:annotation-driven/>
-	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/post/addPost.do"/>
+			<!-- 需排除拦截的地址 -->
+			<mvc:exclude-mapping path="/index.do"/>
+			<bean class="com.mouxf.interceptor.UserLoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix"><value>/WEB-INF/</value></property>
 		<property name="suffix"><value>.jsp</value></property>

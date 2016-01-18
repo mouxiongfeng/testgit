@@ -21,12 +21,7 @@ public class IndexService {
 	public List<Type> getTypeList(){
 		return typeService.getTypeList();
 	}
-	public List<Post> getPostList(int typeId){
-		if(typeId==0){
-			return postService.getPostList();
-		}else{
-			return postService.getPostByTypeId(typeId);
-		}
-		
+	public List<Post> getPostList(){
+		return postService.getPostList();
 	}
 }

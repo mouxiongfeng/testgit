@@ -7,23 +7,40 @@
 		<result column="post_title" property="postTitle"/>
 		<result column="post_content" property="postContent"/>
 		<result column="post_date" property="postDate"/>
+		<result column="post_num" property="postNum"/>
+		<result column="post_cream" property="postCream"/>
 		<association property="user" javaType="User">
 			<id property="userId" column="user_id"/>
 			<id property="userName" column="user_name"/>
 		</association>
 	</resultMap>
-	
-	<select id="getPostList" resultMap="postList" parameterType="Integer">
-		select p.post_id,p.post_title,p.post_content,p.post_date,u.user_id,u.user_name
+	<sql id="selectPost">
+		select p.post_id,p.post_title,p.post_content,p.post_date,p.post_num,p.post_cream,u.user_id,u.user_name
 			from post p
 			inner join user u
 			on p.user_id=u.user_id
+	</sql>
+	<sql id="dateDesc">
+		order by p.post_date DESC
+	</sql>
+	<sql id="paging">
+		limit #{pageSize}
+	</sql>
+	
+	<select id="getPostList" resultMap="postList" parameterType="Integer">
+		<include refid="selectPost"/>
+		<include refid="dateDesc"/>
 	</select>
+	
 	<select id="getPostByTypeId" resultMap="postList" parameterType="Integer">
-		select p.post_id,p.post_title,p.post_content,p.post_date,u.user_id,u.user_name from post p
-			inner join user u
-			on p.user_id=u.user_id
+		<include refid="selectPost"/>
 			inner join (select * from type_post where type_id=#{typeId}) t
 			on p.post_id=t.post_id
+		<include refid="dateDesc"/>
 	</select>
+	
+	<insert id="addPost" parameterType="Post" useGeneratedKeys="true" keyProperty="postId" >
+		insert into post(user_id,post_title,post_content,post_date,post_num,post_cream)
+			values(#{user.userId},#{postTitle},#{postContent},now(),1,0)
+	</insert>
 </mapper>

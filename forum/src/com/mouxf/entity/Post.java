@@ -9,6 +9,10 @@ public class Post {
 	private String postTitle;
 	private String postContent;
 	private Date postDate;
+	private int postNum;
+	private int postCream;
+	
+	
 	public int getPostId() {
 		return postId;
 	}
@@ -38,6 +42,18 @@ public class Post {
 	}
 	public void setPostDate(Date postDate) {
 		this.postDate = postDate;
+	}
+	public int getPostNum() {
+		return postNum;
+	}
+	public void setPostNum(int postNum) {
+		this.postNum = postNum;
+	}
+	public int getPostCream() {
+		return postCream;
+	}
+	public void setPostCream(int postCream) {
+		this.postCream = postCream;
 	}
 	
 }
